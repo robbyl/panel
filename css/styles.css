@@ -1,0 +1,43 @@
+.page-wrapper {
+    width: 800px;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.mdl-layout__content {
+    background: #f1f1f1;
+}
+
+.card-header {
+    color: rgba(0,0,0,0.54);
+    font: 400 14px Roboto,sans-serif;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.mdl-textfield__input {
+    width: 100% !important;
+}
+
+.mdl-layout__tab-bar {
+    width: 800px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.video-form {
+    padding: 16px;
+}
+
+.mdl-textfield {
+    width: 80%;
+}
