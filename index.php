@@ -29,9 +29,8 @@ and open the template in the editor.
                 });
 
                 $(".dropzone").dropzone({
-                    thumbnailWidth: 220,
-                    thumbnailHeight: 120,
-                    url: "/file/post"
+                    dictDefaultMessage: "",
+                    url: "#"
                 });
             });
         </script>
@@ -108,7 +107,8 @@ and open the template in the editor.
                                         <ul class="slides">
                                             <li>
                                                 <div class="course-wrapper">
-                                                    <div class="course-header dropzone">
+                                                    <div class="course-header">
+                                                        <div class="dropzone" style="position: absolute;"></div>
                                                         <img src="images/1.png" />
                                                     </div>
                                                     <div class="course-desc">
@@ -117,6 +117,7 @@ and open the template in the editor.
                                                 </div>
                                                 <div class="course-wrapper">
                                                     <div class="course-header">
+                                                        <div class="dropzone" style="position: absolute;"></div>
                                                         <img src="images/1.png" />
                                                     </div>
                                                     <div class="course-desc">
