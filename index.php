@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,24 +14,42 @@ and open the template in the editor.
         <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
         <script src="js/dropzone.js" type="text/javascript"></script>
         <script src="js/material.js" type="text/javascript"></script>
+        <script src="js/functions.js" type="text/javascript"></script>
+
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <?php $courses_no = 4 ?>
 
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.flexslider').flexslider({
+                    slideshow: false,
                     animation: "slide"
                 });
-
-                $(".dropzone").dropzone({
-                    dictDefaultMessage: "",
-                    url: "#"
-                });
+                
+                Dropzone.autoDiscover = false;
+<?php
+for ($i = 0; $i < $courses_no; $i++) {
+    echo "$('.dropzone{$i}').dropzone({
+        renameFilename: function (filename) {
+            return  '{$i}.' + filename.substr( (filename.lastIndexOf('.') +1) );
+        },
+                    dictDefaultMessage: '',
+                    url: 'move_uploaded_course_images.php'
+                });";
+    echo "\r\n";
+}
+?>
+      
             });
         </script>
 
     </head>
     <body>
+
+        <div id="status"></div>
+
         <!-- Simple header with fixed tabs. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
             <header class="mdl-layout__header">
@@ -97,7 +110,7 @@ and open the template in the editor.
                 <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                     <div class="page-content"><!-- Your content goes here -->
 
-                        <form id="form-courses" action="/file-upload" method="post" enctype="multipart/form-data">
+                        <form id="form-courses" action="" method="post" enctype="multipart/form-data">
 
                             <div class="mdl-card mdl-shadow--2dp page-wrapper">
                                 <div class="card-header card-title-text">Post courses</div>
@@ -106,40 +119,19 @@ and open the template in the editor.
                                     <div class="flexslider" style=" height: 200px;">
                                         <ul class="slides">
                                             <li>
-                                                <div class="course-wrapper">
-                                                    <div class="course-header">
-                                                        <div class="dropzone" style="position: absolute;"></div>
-                                                        <img src="images/1.png" />
+                                                <?php for ($j = 0; $j < $courses_no; $j++) {
+                                                    ?>
+                                                    <div class="course-wrapper <?php if ($j == $courses_no - 1) echo " end-corse"; ?>">
+                                                        <div class="course-header">
+                                                            <div class="dropzone<?php echo $j ?> dropzone" style="position: absolute;"></div>
+                                                            <img src="images/1.png" />
+                                                        </div>
+                                                        <div class="course-desc">
+                                                            <textarea class="mdl-textfield__input course-textarea" name="course_title[]" type="text" rows= "2"textfield__input course-textarea id="sample5" >This is very long and simple course title</textarea>
+                                                        </div>
                                                     </div>
-                                                    <div class="course-desc">
-                                                        <textarea class="mdl-textfield__input course-textarea" type="text" rows= "2"textfield__input course-textarea id="sample5" >This is very long and simple course title</textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="course-wrapper">
-                                                    <div class="course-header">
-                                                        <div class="dropzone" style="position: absolute;"></div>
-                                                        <img src="images/1.png" />
-                                                    </div>
-                                                    <div class="course-desc">
-                                                        <p>This is very long and simple course title</p>
-                                                    </div>
-                                                </div>
-                                                <div class="course-wrapper">
-                                                    <div class="course-header">
-                                                        <img src="images/1.png" />
-                                                    </div>
-                                                    <div class="course-desc">
-                                                        <p>This is very long and simple course title</p>
-                                                    </div>
-                                                </div>
-                                                <div class="course-wrapper end-corse">
-                                                    <div class="course-header">
-                                                        <img src="images/1.png" />
-                                                    </div>
-                                                    <div class="course-desc">
-                                                        <p>This is very long and simple course title</p>
-                                                    </div>
-                                                </div>
+                                                <?php }
+                                                ?>
                                             </li>
                                             <li>
                                                 <div class="course-wrapper">
@@ -178,7 +170,7 @@ and open the template in the editor.
 
                                         </ul>
                                     </div>
-                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Save courses</button>
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="save-course">Save courses</button>
                                 </div>
                             </div>
                         </form>

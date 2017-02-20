@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/dropzone.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+        <script src="js/dropzone.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                Dropzone.autoDiscover = false;
+                $('.dropzone').dropzone({
+                    paramName: 'file',
+                    renameFilename: function (filename) {
+                        return new Date().getTime() + '_' + filename;
+                    },
+                    autoProcessQueue: false,
+                    uploadMultiple: false,
+                    dictDefaultMessage: 'drop'
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form action="save_courses.php" method="POST" class="dropzone" enctype="multipart/form-data">
+            <!--            <input name="file" type="file" />
+                        <button type="submit">submit</button>-->
+        </form>
+    </body>
+</html>
