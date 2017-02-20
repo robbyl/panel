@@ -13,8 +13,17 @@
 }
 
 .dropzone .dz-preview {
+    /*width: 220px;*/
+    /*height: 120px;*/
     margin: 0;
     display: block;
+}
+
+.dropzone .dz-preview .dz-image {
+    border-radius: 0px;
+    width: 220px;
+    width: auto;
+    height: 120px;
 }
 
 .mdl-layout__content {

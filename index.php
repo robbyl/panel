@@ -28,7 +28,11 @@ and open the template in the editor.
                     animation: "slide"
                 });
 
-                $(".dropzone").dropzone({url: "/file/post"});
+                $(".dropzone").dropzone({
+                    thumbnailWidth: 220,
+                    thumbnailHeight: 120,
+                    url: "/file/post"
+                });
             });
         </script>
 
