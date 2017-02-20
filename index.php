@@ -11,10 +11,26 @@ and open the template in the editor.
         <title></title>
         <!--<link href="css/material.css" rel="stylesheet" type="text/css"/>-->
         <link href="css/material.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/flexslider.css" rel="stylesheet" type="text/css"/>
+        <link href="css/dropzone.css" rel="stylesheet" type="text/css"/>
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
 
+        <script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+        <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
+        <script src="js/dropzone.js" type="text/javascript"></script>
         <script src="js/material.js" type="text/javascript"></script>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.flexslider').flexslider({
+                    animation: "slide"
+                });
+
+                $(".dropzone").dropzone({url: "/file/post"});
+            });
+        </script>
 
     </head>
     <body>
@@ -61,7 +77,7 @@ and open the template in the editor.
                             <div class="card-header card-title-text">Post home video link</div>
 
                             <div class="video-container">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/kItl8uZ103M" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="400" height="315" src="https://www.youtube.com/embed/kItl8uZ103M" frameborder="0" allowfullscreen></iframe>
                             </div>
                             <form class="video-form" action="">
                                 <div class="mdl-textfield mdl-js-textfield">
@@ -78,13 +94,89 @@ and open the template in the editor.
                 <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                     <div class="page-content"><!-- Your content goes here -->
 
-                        <div class="mdl-card mdl-shadow--2dp page-wrapper">
-                            <div class="mdl-card__supporting-text">
-                                The Sky Tower is an observation and telecommunications tower located in Auckland,
-                                New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure
-                                in the Southern Hemisphere.
+                        <form id="form-courses" action="/file-upload" method="post" enctype="multipart/form-data">
+
+                            <div class="mdl-card mdl-shadow--2dp page-wrapper">
+                                <div class="card-header card-title-text">Post courses</div>
+                                <div style="height: 216px; margin-left: 16px; margin-right: 16px; clear: both;">
+
+                                    <div class="flexslider" style=" height: 200px;">
+                                        <ul class="slides">
+                                            <li>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header dropzone">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <textarea class="mdl-textfield__input course-textarea" type="text" rows= "2"textfield__input course-textarea id="sample5" >This is very long and simple course title</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper end-corse">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                                <div class="course-wrapper end-corse">
+                                                    <div class="course-header">
+                                                        <img src="images/1.png" />
+                                                    </div>
+                                                    <div class="course-desc">
+                                                        <p>This is very long and simple course title</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Save courses</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
 
                     </div>
                 </section>
