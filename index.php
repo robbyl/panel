@@ -139,7 +139,10 @@ for ($i = 1; $i <= 8; $i++) {
                         <form id="form-courses" action="save_courses.php" method="post" enctype="multipart/form-data">
 
                             <div class="mdl-card mdl-shadow--2dp page-wrapper">
-                                <div class="card-header card-title-text">Post courses</div>
+                                <div class="card-header">
+                                    <div class="card-title-text">Post courses</div>
+                                </div>
+                                <div class="mdl-card__supporting-text">Drag and drop an image (220x120) or click on image to upload a new one</div>
                                 <div style="height: 216px; margin-left: 16px; margin-right: 16px; clear: both;">
 
                                     <div class="flexslider" style=" height: 200px;">
