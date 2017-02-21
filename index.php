@@ -62,7 +62,7 @@ for ($i = 1; $i <= 8; $i++) {
             return  '{$i}.' + filename.substr( (filename.lastIndexOf('.') +1) );
         },
                     dictDefaultMessage: '',
-                    url: 'move_uploaded_course_images.php'
+                    url: 'save_course_images.php'
                 });";
     echo "\r\n";
 }
