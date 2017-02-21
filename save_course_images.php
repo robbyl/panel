@@ -3,10 +3,9 @@
 require './config/database.php';
 require './functions/functions.php';
 
-$file_name = clean($_FILES['file']['name']);
-
-if (move_uploaded_file($file_name, "G:/demo/" . $_FILES['file']['name'])) {
+if (move_uploaded_file($_FILES['file']['tmp_name'], "G:/demo/" . $_FILES['file']['name'])) {
     
+    $file_name = $_FILES['file']['name'];
     $explode = explode('.', $file_name);
     $id = $explode[0];
     
