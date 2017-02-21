@@ -127,3 +127,39 @@ div.flexslider p {
 .mdl-card__supporting-text {
     /*width: 100%;*/
 }
+
+.success {
+    background: rgb(255,171,64);
+    top: 0;
+    left: 50%;
+    margin-left: -200px !important;
+    color: #ffffff;
+    width: 400px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    padding: 8px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.error {
+    background: #F44336;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    margin-left: -200px !important;
+    color: #ffffff;
+    width: 400px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    padding: 8px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
