@@ -78,6 +78,13 @@ for ($i = 1; $i <= 8; $i++) {
                     dictDefaultMessage: '',
                     thumbnailWidth: 220,
                     thumbnailHeight: 120,
+                    maxFiles: 1,
+                    init: function() {
+      this.on('maxfilesexceeded', function(file) {
+            this.removeAllFiles();
+            this.addFile(file);
+      });},
+      acceptedFiles: 'image/jpeg,image/png',
                     url: 'save_course_images.php'
                 });";
     echo "\r\n";
