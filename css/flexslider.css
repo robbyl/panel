@@ -38,7 +38,9 @@
 *********************************/
 .flexslider {margin: 0; padding: 0; background: #555 !important;}
 .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; position: relative;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {width: 60%; float: right;}
+.flexslider .slides img {
+    /*width: 60%;*/
+    float: right;}
 .flexslider .slides .coursesintro {width: 40%; float: left; height: 100%; background: #555; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */

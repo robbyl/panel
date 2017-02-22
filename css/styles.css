@@ -22,12 +22,18 @@
     display: block;
 }
 
-.dropzone .dz-preview .dz-image {
+/*.dropzone .dz-preview .dz-image {
     border-radius: 0px;
     width: 220px;
     height: 120px;
+    height: 100% !important;
+}*/
+.slides img, .dropzone .dz-preview .dz-image  {
+    border-radius: 0px;
+    width: 220px !important;
+    height: 120px !important;
+    
 }
-
 .mdl-layout__content {
     background: #f1f1f1;
 }
@@ -79,10 +85,7 @@
 }
 
 
-.slides img {
-    height: 120px !important;
-    width: 100% !important;
-}
+
 
 .course-wrapper {
     margin-right: 16px;

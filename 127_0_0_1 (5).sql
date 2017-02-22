@@ -19,7 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ilearn_panel`
 --
-DROP DATABASE `ilearn_panel`;
 CREATE DATABASE IF NOT EXISTS `ilearn_panel` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `ilearn_panel`;
 

@@ -61,7 +61,23 @@ for ($i = 1; $i <= 8; $i++) {
         renameFilename: function (filename) {
             return  '{$i}.' + filename.substr( (filename.lastIndexOf('.') +1) );
         },
+          error: function(file, response) {
+        if($.type(response) === 'string')
+            var message = response;
+        else
+            var message = response.message;
+        file.previewElement.classList.add('dz-error');
+        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]');
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            _results.push(node.textContent = message);
+        }
+        return _results;
+    } ,
                     dictDefaultMessage: '',
+                    thumbnailWidth: 220,
+                    thumbnailHeight: 120,
                     url: 'save_course_images.php'
                 });";
     echo "\r\n";
@@ -155,7 +171,7 @@ for ($i = 1; $i <= 8; $i++) {
                                                     <div class="course-wrapper <?php if ($j == 4) echo " end-corse"; ?>">
                                                         <div class="course-header">
                                                             <div class="dropzone<?php echo $j ?> dropzone" style="position: absolute;"></div>
-                                                            <img src="images/1.png" />
+                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course['image']  ?>" />
                                                         </div>
                                                         <div class="course-desc">
                                                             <textarea class="mdl-textfield__input course-textarea" name="course_title[]" type="text" rows= "2"><?php echo $course['title'] ?></textarea>
@@ -175,7 +191,7 @@ for ($i = 1; $i <= 8; $i++) {
                                                     <div class="course-wrapper <?php if ($j == 8) echo " end-corse"; ?>">
                                                         <div class="course-header">
                                                             <div class="dropzone<?php echo $j ?> dropzone" style="position: absolute;"></div>
-                                                            <img src="images/1.png" />
+                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course2['image']  ?>" />
                                                         </div>
                                                         <div class="course-desc">
                                                             <textarea class="mdl-textfield__input course-textarea" name="course_title2[]" type="text" rows= "2"><?php echo $course2['title'] ?></textarea>
