@@ -166,3 +166,15 @@ div.flexslider p {
     box-sizing: border-box;
     border-radius: 2px;
 }
+
+.ads {
+    width: 600px;
+    height: 80px;
+    background: lightblue !important;
+}
+
+.ads-image {
+    width: 600px;
+    height: 80px;
+    margin-bottom: 16px;
+}

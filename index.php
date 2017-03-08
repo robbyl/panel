@@ -4,7 +4,7 @@ require './config/database.php';
 $result_video_url = mysqli_query($link, "SELECT * FROM youtube_video");
 $url = mysqli_fetch_array($result_video_url);
 
-$result_news = mysqli_query($link, "SELECT * FROM news");
+$result_news = mysqli_query($link, "SELECT * FROM news") or die(mysqli_error($link));
 $news = mysqli_fetch_array($result_news);
 
 $query_courses = "SELECT * FROM course LIMIT 0, 4";
@@ -12,6 +12,10 @@ $result_courses = mysqli_query($link, $query_courses) or die(mysqli_error($link)
 
 $query_courses2 = "SELECT * FROM course LIMIT 4, 8";
 $result_courses2 = mysqli_query($link, $query_courses2) or die(mysqli_error($link));
+
+$query_ads = "SELECT * FROM ads WHERE id = 1";
+$result_ads = mysqli_query($link, $query_ads) or die(mysqli_error($link));
+$ad = mysqli_fetch_array($result_ads);
 ?>
 
 <!DOCTYPE html>
@@ -43,15 +47,20 @@ $result_courses2 = mysqli_query($link, $query_courses2) or die(mysqli_error($lin
                     slideshow: false,
                     animation: "slide"
                 });
-                
-                $('#form-courses').submit(function (e){
+
+                $('#form-courses').submit(function (e) {
                     e.preventDefault();
                     saveCourses();
                 });
-                
-                $('#save-news').submit(function (e){
+
+                $('#save-news').submit(function (e) {
                     e.preventDefault();
                     saveNews();
+                });
+
+                $('#ads-form').submit(function (e) {
+                    e.preventDefault();
+                    saveAds();
                 });
 
                 Dropzone.autoDiscover = false;
@@ -178,7 +187,7 @@ for ($i = 1; $i <= 8; $i++) {
                                                     <div class="course-wrapper <?php if ($j == 4) echo " end-corse"; ?>">
                                                         <div class="course-header">
                                                             <div class="dropzone<?php echo $j ?> dropzone" style="position: absolute;"></div>
-                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course['image']  ?>" />
+                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course['image'] ?>" />
                                                         </div>
                                                         <div class="course-desc">
                                                             <textarea class="mdl-textfield__input course-textarea" name="course_title[]" type="text" rows= "2"><?php echo $course['title'] ?></textarea>
@@ -198,7 +207,7 @@ for ($i = 1; $i <= 8; $i++) {
                                                     <div class="course-wrapper <?php if ($j == 8) echo " end-corse"; ?>">
                                                         <div class="course-header">
                                                             <div class="dropzone<?php echo $j ?> dropzone" style="position: absolute;"></div>
-                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course2['image']  ?>" />
+                                                            <img src="../totara/theme/ilearn/pix/<?php echo $course2['image'] ?>" />
                                                         </div>
                                                         <div class="course-desc">
                                                             <textarea class="mdl-textfield__input course-textarea" name="course_title2[]" type="text" rows= "2"><?php echo $course2['title'] ?></textarea>
@@ -223,11 +232,21 @@ for ($i = 1; $i <= 8; $i++) {
                     <div class="page-content"><!-- Your content goes here -->
 
                         <div class="mdl-card mdl-shadow--2dp page-wrapper">
+                            <div class="card-header card-title-text">Post Ads</div>
                             <div class="mdl-card__supporting-text">
-                                The Sky Tower is an observation and telecommunications tower located in Auckland,
-                                New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure
-                                in the Southern Hemisphere.
+                                Upload an image banner (600x80)
                             </div>
+                            <form id="ads-form" action="save_ads.php" method="post" enctype="multipart/form-data" style="padding: 16px;" >
+                                <div id="ads-image" class="ads-image">
+                                    <img src="../totara/theme/ilearn/pix/<?php echo $ad['image'] ?>"/>
+                                </div>
+                                <br/>
+                                <input type="file" name="ads">
+                                <br/>
+                                <br/>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="save-ad">Upload ad</button>
+
+                            </form>
                         </div>
 
                     </div>

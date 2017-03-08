@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2017 at 10:01 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.5.35
+-- Generation Time: Mar 08, 2017 at 01:49 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `ilearn_panel`
 --
-CREATE DATABASE IF NOT EXISTS `ilearn_panel` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ilearn_panel`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ads`
+--
+
+CREATE TABLE `ads` (
+  `id` int(10) NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ads`
+--
+
+INSERT INTO `ads` (`id`, `image`) VALUES
+(1, 'banner-gray.png');
 
 -- --------------------------------------------------------
 
@@ -40,14 +56,14 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `title`, `image`, `created_date`) VALUES
-(1, 'This is very long and simple course title', '', '2017-02-21 19:14:55'),
-(2, 'This is very long and simple course title', '', '2017-02-21 19:14:55'),
-(3, 'This is very long and simple course title', '', '2017-02-21 19:14:55'),
-(4, 'This is very long and simple course title', '', '2017-02-21 19:14:55'),
-(5, 'This is very long and simple course title', '', '2017-02-21 19:52:41'),
-(6, 'This is very long and simple course title', '', '2017-02-21 15:24:18'),
-(7, 'This is very long and simple course title', '', '2017-02-21 15:24:18'),
-(8, 'This is very long and simple course title', '', '2017-02-21 15:24:18');
+(1, 'This is very long and simple course title', '1.png', '2017-02-22 10:28:17'),
+(2, 'This is very long and simple course title', '2.png', '2017-02-22 10:28:23'),
+(3, 'This is very long and simple course title', '3.png', '2017-02-22 10:28:28'),
+(4, 'This is very long and simple course title', '4.png', '2017-02-22 10:28:33'),
+(5, 'This is very long and simple course title', '5.png', '2017-02-22 10:14:02'),
+(6, 'This is very long and simple course title', '6.png', '2017-02-22 10:27:53'),
+(7, 'This is very long and simple course title', '7.png', '2017-02-22 10:28:01'),
+(8, 'This is very long and simple course title', '8.png', '2017-02-22 10:28:09');
 
 -- --------------------------------------------------------
 
@@ -91,6 +107,12 @@ INSERT INTO `youtube_video` (`id`, `url`) VALUES
 --
 
 --
+-- Indexes for table `ads`
+--
+ALTER TABLE `ads`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
@@ -112,6 +134,11 @@ ALTER TABLE `youtube_video`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `ads`
+--
+ALTER TABLE `ads`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `course`
 --

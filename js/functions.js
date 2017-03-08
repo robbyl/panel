@@ -35,3 +35,25 @@ function saveNews() {
         }
     });
 }
+
+function saveAds() {
+    $.ajax({
+        url: 'save_ads.php',
+        data: new FormData($('#ads-form')[0]),
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        dataType: 'html',
+        beforeSend: function () {
+            $('#status').html('<div class="success">Processing...</div>');
+        },
+        success: function (data, textStatus, xhr) {
+            $('#ads-image').html(data);
+            $('#status').html('<div class="success">Add saved successfully!</div>');
+            $('.success').delay(5000).fadeOut('slow');
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            $('#status').html('<div class="error">Cannot save ad, Please try again</div>');
+        }
+    });
+}
