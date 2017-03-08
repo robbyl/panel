@@ -177,4 +177,7 @@ div.flexslider p {
     width: 600px;
     height: 80px;
     margin-bottom: 16px;
+    overflow: hidden;
 }
+
+
